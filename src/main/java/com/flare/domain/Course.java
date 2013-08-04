@@ -1,10 +1,13 @@
 package com.flare.domain;
 
+import java.util.ArrayList;
+
 public class Course {
 	private int id;
 	private String subject;
 	private String code;
 	private String professor;
+	private ArrayList<String> subList;
 
 	public int getId() {
 		return id;
@@ -36,6 +39,16 @@ public class Course {
 
 	public void setProfessor(String professor) {
 		this.professor = professor;
+	}
+	
+	public void setSublist(ArrayList<String> str)
+	{
+		this.subList = str;
+	}
+	
+	public ArrayList<String> getSublist()
+	{
+		return subList;
 	}
 
 	@Override

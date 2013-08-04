@@ -31,6 +31,22 @@ public class CourseController {
 		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
 	}
 	
+	@RequestMapping(value = "/classes/", method=RequestMethod.GET)
+	public ModelAndView getSubList()
+	{
+		Course c = null;
+		try{
+			c = cs_i.getCourses();
+		}
+		catch(Exception e){
+			  String sMessage = "Error invoking getFund. [%1$s]";  
+			  return createErrorResponse(String.format(sMessage, e.toString()));  
+		}
+		logger_c.debug("Returning Fund: " + c.toString());  
+		System.err.println("watup");
+		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
+	}
+	
 	@RequestMapping(value = "/class/", method=RequestMethod.GET)
 	public ModelAndView getCourse()
 	{

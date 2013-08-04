@@ -1,5 +1,7 @@
 package com.flare.services;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class CourseService {
 		c.setId(13094);
 		c.setProfessor("Magagna");
 		c.setSubject("POLI");
+		ArrayList<String> subL = new ArrayList<String>();
+		subL.add("A1");
+		subL.add("A2");
+		subL.add("A3");
+		c.setSublist(subL);
 		return c;
 	}
 }
