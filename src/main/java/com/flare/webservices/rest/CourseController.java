@@ -31,7 +31,7 @@ public class CourseController {
 		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
 	}
 	
-	@RequestMapping(value = "/courses/", method=RequestMethod.GET)
+	@RequestMapping(value = "/course/", method=RequestMethod.GET)
 	public ModelAndView getSubList()
 	{
 		Course c = null;
@@ -63,11 +63,11 @@ public class CourseController {
 		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
 	}
 	
-	@RequestMapping(value = "*", method=RequestMethod.GET)
-	public ModelAndView generic()
-	{
-		String sMessage = "problem";
-		return createErrorResponse(String.format(sMessage));
-	}
+//	@RequestMapping(value = "*", method=RequestMethod.GET)
+//	public ModelAndView generic()
+//	{
+//		String sMessage = "problem";
+//		return createErrorResponse(String.format(sMessage));
+//	}
 	
 }
