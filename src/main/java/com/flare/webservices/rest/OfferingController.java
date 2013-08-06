@@ -45,13 +45,13 @@ public class OfferingController {
 		
 	}
 	
-	@RequestMapping(value = "/classes/{cid}", method=RequestMethod.GET)
+	@RequestMapping(value = "/classes/{cid}/", method=RequestMethod.GET)
 	public ModelAndView getOffering(@PathVariable("cid") String offeringId)
 	{
 		Offering of = os.getOffering(offeringId);
 		if(of == null)
 		{
-			return createErrorResponse("Invalid cID. No Offerings Found.");
+			return createErrorResponse("Invalid cID. No Offerings Found. Recorded cID was: "+offeringId);
 		}
 		return new ModelAndView(jsonView,DATA,of);
 	}
