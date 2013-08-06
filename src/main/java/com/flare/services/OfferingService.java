@@ -17,8 +17,8 @@ import com.flare.solrAccess.SolrSingleton;
 @Service
 public class OfferingService {
 	private static final Logger logger_c = Logger.getLogger(CourseService.class);
-//	private static final String uri_base = "http://ec2-54-213-31-81.us-west-2.compute.amazonaws.com:8983/solr/collection1/select?q=";
-	private static final String uri_base = "http://localhost:8983/solr/collection1/select?q=";
+	private static final String uri_base = "http://ec2-54-213-31-81.us-west-2.compute.amazonaws.com:8983/solr/collection1/select?q=";
+//	private static final String uri_base = "http://localhost:8983/solr/collection1/select?q=";
 	private static final String uri_qsp = "&wt=json&indent=true&rows=99999";
 	public SolrSingleton solr = SolrSingleton.getSolrSingleton();
 	
@@ -61,8 +61,8 @@ public class OfferingService {
 			
 			if(of != null)
 			{
-				System.out.println(of.getLecture());
-				System.out.println(of.getDiscussion());
+//				System.out.println(of.getLecture());
+//				System.out.println(of.getDiscussion());
 				li_of.add(of);
 			}
 		}
