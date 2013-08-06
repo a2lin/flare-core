@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,5 +43,16 @@ public class OfferingController {
 		offerings = os.getAllClasses();
 		return new ModelAndView(jsonView, DATA, offerings);
 		
+	}
+	
+	@RequestMapping(value = "/classes/{cid}", method=RequestMethod.GET)
+	public ModelAndView getOffering(@PathVariable("cid") String offeringId)
+	{
+		Offering of = os.getOffering(offeringId);
+		if(of == null)
+		{
+			return createErrorResponse("Invalid cID. No Offerings Found.");
+		}
+		return new ModelAndView(jsonView,DATA,of);
 	}
 }

@@ -24,7 +24,7 @@ public class OfferingService {
 	
 	
 	/**
-	 * Expensive call! (don't expose?)
+	 * Expensive call! (don't expose?) [Somewhat fixed in recent iter]
 	 * 
 	 * @return
 	 */
@@ -70,4 +70,35 @@ public class OfferingService {
 //		System.out.println(node);
 		return li_of;
 	}
+
+
+	public Offering getOffering(String cid) {
+		JsonNode node;
+		node = solr.request(uri_base+"%2Btype%3A+offering+%2Bcid%3A"+cid+uri_qsp);
+		System.out.println(uri_base+"%2Btype%3A+offering+%2Bcid%3A"+cid+uri_qsp);
+		node = node.get("response");
+		
+		//should only be one offering for a specific cid.
+		if(node.get("numFound").getIntValue() == 1)
+		{
+			ObjectMapper mapper = new ObjectMapper();
+			Offering of;
+			try {
+				of = mapper.readValue(node.get("docs").get(0).toString(), Offering.class);
+				return of;
+			} catch (JsonParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	
 }
