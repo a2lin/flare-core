@@ -31,7 +31,7 @@ public class CourseController {
 		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
 	}
 	
-	@RequestMapping(value = "/classes/", method=RequestMethod.GET)
+	@RequestMapping(value = "/courses/", method=RequestMethod.GET)
 	public ModelAndView getSubList()
 	{
 		Course c = null;
@@ -47,7 +47,7 @@ public class CourseController {
 		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
 	}
 	
-	@RequestMapping(value = "/class/", method=RequestMethod.GET)
+	@RequestMapping(value = "/courses/", method=RequestMethod.GET)
 	public ModelAndView getCourse()
 	{
 		Course c = null;
@@ -61,6 +61,13 @@ public class CourseController {
 		logger_c.debug("Returning Fund: " + c.toString());  
 		System.err.println("watup");
 		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
+	}
+	
+	@RequestMapping(value = "*", method=RequestMethod.GET)
+	public ModelAndView generic()
+	{
+		String sMessage = "problem";
+		return createErrorResponse(String.format(sMessage));
 	}
 	
 }
