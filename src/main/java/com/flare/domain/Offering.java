@@ -2,64 +2,80 @@ package com.flare.domain;
 
 import java.util.ArrayList;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Offering {
+	private String type;
+	private String cid;
 	private String id;
-	private String subject;
-	private String code;
-	private ArrayList<String> lectures;
-	private ArrayList<String> discussions;
-	private ArrayList<String> seminars;
-	private ArrayList<String> labs;
-	private ArrayList<String> tutorials;
+	private String subjcode;
+	private String courseno;
+	private ArrayList<String> lecture;
+	private ArrayList<String> discussion;
+	private ArrayList<String> seminar;
+	private ArrayList<String> lab;
+	private ArrayList<String> tutorial;
 	private ArrayList<String> other;
-	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getCid() {
+		return cid;
+	}
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getSubject() {
-		return subject;
+	public String getSubjcode() {
+		return subjcode;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setSubjcode(String subjcode) {
+		this.subjcode = subjcode;
 	}
-	public String getCode() {
-		return code;
+	public String getCourseno() {
+		return courseno;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setCourseno(String courseno) {
+		this.courseno = courseno;
 	}
-	public ArrayList<String> getLectures() {
-		return lectures;
+	public ArrayList<String> getLecture() {
+		return lecture;
 	}
-	public void setLectures(ArrayList<String> lectures) {
-		this.lectures = lectures;
+	public void setLecture(ArrayList<String> lecture) {
+		this.lecture = lecture;
 	}
-	public ArrayList<String> getDiscussions() {
-		return discussions;
+	public ArrayList<String> getDiscussion() {
+		return discussion;
 	}
-	public void setDiscussions(ArrayList<String> discussions) {
-		this.discussions = discussions;
+	public void setDiscussion(ArrayList<String> discussion) {
+		this.discussion = discussion;
 	}
-	public ArrayList<String> getSeminars() {
-		return seminars;
+	public ArrayList<String> getSeminar() {
+		return seminar;
 	}
-	public void setSeminars(ArrayList<String> seminars) {
-		this.seminars = seminars;
+	public void setSeminar(ArrayList<String> seminar) {
+		this.seminar = seminar;
 	}
-	public ArrayList<String> getLabs() {
-		return labs;
+	public ArrayList<String> getLab() {
+		return lab;
 	}
-	public void setLabs(ArrayList<String> labs) {
-		this.labs = labs;
+	public void setLab(ArrayList<String> lab) {
+		this.lab = lab;
 	}
-	public ArrayList<String> getTutorials() {
-		return tutorials;
+	public ArrayList<String> getTutorial() {
+		return tutorial;
 	}
-	public void setTutorials(ArrayList<String> tutorials) {
-		this.tutorials = tutorials;
+	public void setTutorial(ArrayList<String> tutorial) {
+		this.tutorial = tutorial;
 	}
 	public ArrayList<String> getOther() {
 		return other;
@@ -68,5 +84,5 @@ public class Offering {
 		this.other = other;
 	}
 	
-
+	
 }
