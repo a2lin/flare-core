@@ -55,4 +55,11 @@ public class OfferingController {
 		}
 		return new ModelAndView(jsonView,DATA,of);
 	}
+	
+//	@RequestMapping(value = "/classes/id/{num}", method=RequestMethod.GET)
+//	public ModelAndView getSection(@PathVariable("num") String sectionId)
+//	{
+//		
+//		return null;
+//	}
 }
