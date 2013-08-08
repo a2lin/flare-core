@@ -8,10 +8,10 @@
   <title>Foundation 4</title>
 
   
-  <link rel="stylesheet" href="../css/foundation.css" />
+  <link rel="stylesheet" href="../css/foundation.css" th:href="@{/css/foundation.css}" />
   
 
-  <script src="../js/vendor/custom.modernizr.js"></script>
+  <script src="../js/custom.modernizr.js" th:src="@{/js/custom.modernizr.js}"></script>
 
 </head>
 <body>
@@ -96,15 +96,13 @@
 		</div>
 	</div>
 
-<!--
   <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  ('__proto__' in {} ? 'js/zepto' : 'js/jquery') +
   '.js><\/script>')
   </script>
-  -->
   
-  <script src="../js/foundation.min.js"></script>
+  <script src="../js/foundation.min.js" th:src="@{/js/foundation.min.js}""></script>
   <!--
   
   <script src="/js/foundation/foundation.js"></script>
