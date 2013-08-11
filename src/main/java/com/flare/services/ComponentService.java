@@ -1,6 +1,8 @@
 package com.flare.services;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonNode;
@@ -43,6 +45,36 @@ public class ComponentService {
 		}
 		return comp;
 
+	}
+
+	public List<Component> getAllComponents() {
+		JsonNode node;
+		ArrayList<Component> compList = new ArrayList<Component>();
+		node = solr.request(uri_base+"%2Btype%3Acomponent" + uri_qsp);
+		node = node.get("response");
+		if(node.get("numFound").getIntValue() > 0)
+		{
+			Component comp = null;
+			node = node.get("docs");
+			ObjectMapper mapper = new ObjectMapper();
+			for(int i = 0; i < node.size(); i++)
+			{
+				try {
+					comp = mapper.readValue(node.get(0).toString(), Component.class);
+				} catch (JsonParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JsonMappingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				compList.add(comp);
+			}
+		}
+		return compList;
 	}
 
 }

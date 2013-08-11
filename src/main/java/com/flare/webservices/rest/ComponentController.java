@@ -1,5 +1,7 @@
 package com.flare.webservices.rest;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,15 @@ public class ComponentController {
 
 	private ModelAndView createErrorResponse(String sMessage) {
 		return new ModelAndView(jsonView, ERROR, sMessage);
+	}
+	
+	@RequestMapping(value = "/components/", method=RequestMethod.GET)
+	public ModelAndView getAllComponent()
+	{
+		List<Component> components;
+		components = cs.getAllComponents();
+		return new ModelAndView(jsonView, DATA, components);
+		
 	}
 	
 	@RequestMapping(value = "/component/{sectid}", method=RequestMethod.GET)
