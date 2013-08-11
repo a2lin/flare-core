@@ -5,139 +5,450 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Foundation 4</title>
+  <title>Flare</title>
 
-  
-  <link rel="stylesheet" href="../css/foundation.css" th:href="@{/css/foundation.css}" />
-  
+  <link rel="stylesheet" href="../stylesheets/normalize.css"  th:href="@{/stylesheets/normalize.css}">
+  <link rel="stylesheet" href="../stylesheets/app.css" th:href="@{/stylesheets/app.css}" />
+  <link rel="stylesheet" href="../stylesheets/flare.css" th:href="@{/stylesheets/flare.css}" />
 
   <script src="../js/custom.modernizr.js" th:src="@{/js/custom.modernizr.js}"></script>
 
 </head>
 <body>
 
-	<div class="row">
-		<div class="large-12 columns">
-			<h2>Welcome to Foundation</h2>
-			<p>This is version 4.3.1.</p>
-			<hr />
-		</div>
-	</div>
+	<!-- Header and Nav -->
+  
+<!--   <div class="row">
+    <div class="large-3 columns">
+      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+    </div>
+    <div class="large-9 columns">
+      <ul class="inline-list right">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+      </ul>
+    </div>
+  </div> -->
 
-	<div class="row">
-		<div class="large-8 columns">
-			<h3>The Grid</h3>
-
-			<!-- Grid Example -->
-			<div class="row">
-				<div class="large-12 columns">
-					<div class="panel">
-						<p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="large-6 columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-				<div class="large-6 columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="large-4 columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-			</div>
-
-			<h3>Buttons</h3>
-
-      <div class="row">
-        <div class="large-6 columns">
-          <p><a href="#" class="small button">Small Button</a></p>
-          <p><a href="#" class="button">Medium Button</a></p>
-          <p><a href="#" class="large button">Large Button</a></p>
-        </div>
-        <div class="large-6 columns">
-          <p><a href="#" class="small alert button">Small Alert Button</a></p>
-          <p><a href="#" class="success button">Medium Success Button</a></p>
-          <p><a href="#" class="large secondary button">Large Secondary Button</a></p>
+  <nav class="top-bar" role="navigation" style="margin-bottom:0px">
+    <div class="navigation-container home-border">
+      <ul class="title-area">
+        <li class="name">
+          <img src="../images/flame.png" th:src="@{/images/flame.png}" style="height:100%;float:left;"/> 
+          <h1 style="color:white; float:right; padding-left:10px; font-weight:500;">
+            Flare
+          </h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li >
+            <a href="#"> api </a>
+          </li>
+          <li >
+            <a href="#"> tutorial </a>
+          </li>
+          <li >
+            <a href="#"> about </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </nav>
+  
+  <!-- End Header and Nav -->
+  
+  <section role="main">
+    <header style="background-color:#1e78a1;padding-bottom:22px;border-bottom: 1px black">
+      <div class="row" >
+        <div class="twelve columns" >
+          <h1 class="hide-for-small" style="font-weight:300;color:white"> API Home </h1>
+          <h4 class="hide-for-small" style="font-weight:100;color:white"> Schedule Information. Class Data. </h4>
         </div>
       </div>
-		</div>
+    </header>
 
-		<div class="large-4 columns">
-			<h4>Getting Started</h4>
-			<p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
+    <section id="mainContent">
 
-			<h4>Other Resources</h4>
-			<p>Once you've exhausted the fun in this document, you should check out:</p>
-			<ul class="disc">
-				<li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</li>
-				<li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
-				<li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
-			</ul>
-		</div>
-	</div>
+  <div class="row" style="padding-top:30px">    
+    
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-9 push-3 columns">
+      <div id="saclasses">
+      <h3>Request All Classes <small>Classes API Endpoint</small></h3>
+      
+      <p>Request URI: <span class="label" > /classes/ </span><br>
+        Return Format: <span class="label" >JSON </span></p>
 
-  <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? 'js/zepto' : 'js/jquery') +
-  '.js><\/script>')
-  </script>
+<div class="row">
+        <div class="large-12 columns" style="border-bottom: 1px solid black">
+            Returned Attributes (Multiple Response):
+            <table >
+              <thead>
+                <tr>
+                  <th> Element </th>
+                  <th> Description </th>
+                  <th> Sample Response </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> id </td>
+                  <td> Flare Offering ID </td>
+                  <td> offering.CHEM143C.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> type </td>
+                  <td> Flare Document Type </td>
+                  <td> offering </td>
+                </tr>
+                <tr>
+                  <td> cid </td>
+                  <td> Flare Class ID </td>
+                  <td> CHEM143C.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> subjcode </td>
+                  <td> Course Subject Code </td>
+                  <td> CHEM </td>
+                </tr>
+                <tr> 
+                  <td> courseno </td>
+                  <td> Course Number </td>
+                  <td> 143C </td>
+                </tr>
+                <tr> 
+                  <td> lecture </td>
+                  <td> [Optional] Array of lecture ID strings </td>
+                  <td> [CHEM143C.FA.13.LE.A00] </td>
+                </tr>
+                <tr>
+                  <td> discussion </td>
+                  <td> [Optional] Array of discussion ID strings </td>
+                  <td> [CHEM143C.FA.13.DI.A01] </td>
+                </tr>
+                <tr>
+                  <td> seminar </td>
+                  <td> [Optional] Array of seminar ID strings </td>
+                  <td> [CHEM143C.FA.13.SE.A01] </td>
+                </tr>
+                <tr>
+                  <td> lab </td>
+                  <td> [Optional] Array of lab ID strings </td>
+                  <td> [CHEM143C.FA.13.LA.A01] </td>
+                </tr>
+                <tr>
+                  <td> tutorial </td>
+                  <td> [Optional] Array of tutorial ID strings </td>
+                  <td> [CHEM143C.FA.13.TU.A01] </td>
+                </tr>
+                <tr>
+                  <td> other </td>
+                  <td> [Other] Array of other ID strings </td>
+                  <td> null </td>
+                </tr>
+              </tbody>
+            </table>
+ </div>
+ </div>
+ <div id="soclass">
+      <h3>Request Class by CID <small>Classes API Endpoint</small></h3>
+      
+      <p>Request URI: <span class="label" > /classes/ {CID} / </span><br>
+        Return Format: <span class="label" >JSON </span></p>
+ <div class="row">
+        <div class="large-12 columns" style="border-bottom: 1px solid black">
+            Returned Attributes (Singular Response):
+            <table >
+              <thead>
+                <tr>
+                  <th> Element </th>
+                  <th> Description </th>
+                  <th> Sample Response </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> id </td>
+                  <td> Flare Offering ID </td>
+                  <td> offering.CHEM143C.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> type </td>
+                  <td> Flare Document Type </td>
+                  <td> offering </td>
+                </tr>
+                <tr>
+                  <td> cid </td>
+                  <td> Flare Class ID </td>
+                  <td> CHEM143C.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> subjcode </td>
+                  <td> Course Subject Code </td>
+                  <td> CHEM </td>
+                </tr>
+                <tr> 
+                  <td> courseno </td>
+                  <td> Course Number </td>
+                  <td> 143C </td>
+                </tr>
+                <tr> 
+                  <td> lecture </td>
+                  <td> [Optional] Array of lecture ID strings </td>
+                  <td> [CHEM143C.FA.13.LE.A00] </td>
+                </tr>
+                <tr>
+                  <td> discussion </td>
+                  <td> [Optional] Array of discussion ID strings </td>
+                  <td> [CHEM143C.FA.13.DI.A01] </td>
+                </tr>
+                <tr>
+                  <td> seminar </td>
+                  <td> [Optional] Array of seminar ID strings </td>
+                  <td> [CHEM143C.FA.13.SE.A01] </td>
+                </tr>
+                <tr>
+                  <td> lab </td>
+                  <td> [Optional] Array of lab ID strings </td>
+                  <td> [CHEM143C.FA.13.LA.A01] </td>
+                </tr>
+                <tr>
+                  <td> tutorial </td>
+                  <td> [Optional] Array of tutorial ID strings </td>
+                  <td> [CHEM143C.FA.13.TU.A01] </td>
+                </tr>
+                <tr>
+                  <td> other </td>
+                  <td> [Other] Array of other ID strings </td>
+                  <td> null </td>
+                </tr>
+              </tbody>
+            </table>
+ </div>
+ </div>
+</div>
+<div id="gcsid">
+      <h3>Request Section by SN <small>Sections API Endpoint</small></h3>
+      
+      <p>Request URI: <span class="label" > /component/ {SN} / </span><br>
+        Return Format: <span class="label" >JSON </span></p>
+ <div class="row">
+        <div class="large-12 columns" style="border-bottom: 1px solid black">
+            Returned Attributes (Singular Response):
+            <table >
+              <thead>
+                <tr>
+                  <th> Element </th>
+                  <th> Description </th>
+                  <th> Sample Response </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> location </td>
+                  <td> Section Location Building</td>
+                  <td> YORK </td>
+                </tr>
+                <tr>
+                  <td> id </td>
+                  <td> Section Id </td>
+                  <td> CHEM.152.FA.13.LE.A00 </td>
+                </tr>
+                <tr>
+                  <td> cid </td>
+                  <td> Flare Class ID </td>
+                  <td> CHEM143C.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> type </td>
+                  <td> Flare Document Type </td>
+                  <td> component </td>
+                </tr>
+                <tr> 
+                  <td> year </td>
+                  <td> Section year </td>
+                  <td> 13 </td>
+                </tr>
+                <tr> 
+                  <td> lecture </td>
+                  <td> [Optional] Array of lecture ID strings </td>
+                  <td> [CHEM143C.FA.13.LE.A00] </td>
+                </tr>
+                <tr>
+                  <td> doctype </td>
+                  <td> Type of Section </td>
+                  <td> LE </td>
+                </tr>
+                <tr>
+                  <td> days </td>
+                  <td> Section Days </td>
+                  <td> TuTh </td>
+                </tr>
+                <tr>
+                  <td> cid </td>
+                  <td> Section Class Id </td>
+                  <td> CHEM.152.FA.13 </td>
+                </tr>
+                <tr>
+                  <td> quarter </td>
+                  <td> Section Quarter </td>
+                  <td> FA </td>
+                </tr>
+                <tr>
+                  <td> subjcode </td>
+                  <td> Section Subject Code </td>
+                  <td> CHEM </td>
+                </tr>
+                <tr>
+                  <td> courseno </td>
+                  <td> Course Number </td>
+                  <td> 152 </td>
+                </tr>
+                <tr>
+                  <td> sectid </td>
+                  <td> Section Number </td>
+                  <td> 784415 </td>
+                </tr>
+                <tr>
+                  <td> sectcode </td>
+                  <td> Section Code </td>
+                  <td> A00 </td>
+                </tr>
+                <tr>
+                  <td> classhr_start </td>
+                  <td> Class Start Time </td>
+                  <td> 1100 </td>
+                </tr>
+                 <tr>
+                  <td> classhr_end </td>
+                  <td> Class End Time </td>
+                  <td> 1220 </td>
+                </tr>
+                <tr>
+                  <td> room </td>
+                  <td> Section Location Room </td>
+                  <td> 2622 </td>
+                </tr>
+                 <tr>
+                  <td> professor </td>
+                  <td> Section Professor </td>
+                  <td> Carlos Ariel Guerrero </td>
+                </tr>
+              </tbody>
+            </table>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+    
+    
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns" >
+      <div class="docs section-container accordion" data-section="accordion">
+        <section class="section active">
+          <p class="title" style="left:0px">
+            <a href="#panel1">Classes Endpoints</a>
+          </p>
+          <div class="content" >
+            <ul class="side-nav">
+              <li>
+                <a href="#saclasses"> Request All Classes </a>
+              </li>
+              <li>
+                <a href="#soclass"> Request Class by CID </a>
+              </li>
+            </ul>   
+          </div>
+        </section>
+         <section class="section">
+          <p class="title" style="left:0px">
+            <a href="#panel3">Sections Endpoint</a>
+          </p>
+          <div class="content">
+            <ul class="side-nav">
+              <li>
+                <a href="#gcsid"> Request Section by SN </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="section">
+          <p class="title" style="left:0px">
+            <a href="#panel2">Courses Endpoint</a>
+          </p>
+          <div class="content" >
+            <p>Coming Soon!</p>
+          </div>
+        </section>
+
+<!--       <ul class="side-nav">
+        <li><a href="#">Courses API</a></li>
+        <li><a href="#">Classes API</a></li>
+      </ul> -->
+      
+     <!--  <p><img src="http://placehold.it/320x240&text=Ad" /></p> -->
+        </div>
+    </div>
+    
+  </div>
+</section>
+  </section>
   
-  <script src="../js/foundation.min.js" th:src="@{/js/foundation.min.js}""></script>
-  <!--
+  <!-- Footer -->
   
-  <script src="/js/foundation/foundation.js"></script>
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Flare 2013</p>
+        </div>
+        
+      </div>
+    </div> 
+  </footer>
+
+  <script src="../js/jquery.js" th:src="@{/js/jquery.js}"></script>
   
-  <script src="/js/foundation/foundation.interchange.js"></script>
+  <script src="../js/foundation.js" th:src="@{/js/foundation.js}"></script>
+
   
-  <script src="/js/foundation/foundation.abide.js"></script>
+  <script src="../js/foundation.interchange.js" th:src="@{/js/foundation.interchange.js}"></script>
   
-  <script src="/js/foundation/foundation.dropdown.js"></script>
+  <script src="../js/foundation.abide.js" th:src="@{/js/foundation.abide.js}"></script>
   
-  <script src="/js/foundation/foundation.placeholder.js"></script>
+  <script src="../js/foundation.dropdown.js" th:src="@{/js/foundation.dropdown.js}"></script>
   
-  <script src="/js/foundation/foundation.forms.js"></script>
+  <script src="../js/foundation.placeholder.js" th:src="@{/js/foundation.placeholder.js}"></script>
   
-  <script src="/js/foundation/foundation.alerts.js"></script>
+  <script src="../js/foundation.forms.js" th:src="@{/js/foundation.forms.js}"></script>
   
-  <script src="/js/foundation/foundation.magellan.js"></script>
+  <script src="../js/foundation.alerts.js" th:src="@{/js/foundation.alerts.js}"></script>
   
-  <script src="/js/foundation/foundation.reveal.js"></script>
+  <script src="../js/foundation.magellan.js" th:src="@{/js/foundation.magellan.js}"></script>
   
-  <script src="/js/foundation/foundation.tooltips.js"></script>
+  <script src="../js/foundation.reveal.js" th:src="@{/js/foundation.reveal.js}"></script>
   
-  <script src="/js/foundation/foundation.clearing.js"></script>
+  <script src="../js/foundation.tooltips.js" th:src="@{/js/foundation.tooltips.js}"></script>
   
-  <script src="/js/foundation/foundation.cookie.js"></script>
+  <script src="../js/foundation.clearing.js" th:src="@{/js/foundation.clearing.js}"></script>
   
-  <script src="/js/foundation/foundation.joyride.js"></script>
+  <script src="../js/foundation.cookie.js" th:src="@{/js/foundation.cookie.js}"></script>
   
-  <script src="/js/foundation/foundation.orbit.js"></script>
+  <script src="../js/foundation.joyride.js" th:src="@{/js/foundation.joyride.js}"></script>
   
-  <script src="/js/foundation/foundation.section.js"></script>
+  <script src="../js/foundation.orbit.js" th:src="@{/js/foundation.orbit.js}"></script>
   
-  <script src="/js/foundation/foundation.topbar.js"></script>
+  <script src="../js/foundation.section.js" th:src="@{/js/foundation.section.js}"></script>
   
-  -->
+  <script src="../js/foundation.topbar.js" th:src="@{/js/foundation.topbar.js}"></script>
+  
   
   <script>
     $(document).foundation();
