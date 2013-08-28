@@ -10,7 +10,7 @@ public class Component {
 	private String quarter;
 	private String year;
 	private String subjcode;
-	private int courseno;
+	private String courseno;
 	private int sectid;
 	private String doctype;
 	private String sectcode;
@@ -57,10 +57,10 @@ public class Component {
 	public void setSubjcode(String subjcode) {
 		this.subjcode = subjcode;
 	}
-	public int getCourseno() {
+	public String getCourseno() {
 		return courseno;
 	}
-	public void setCourseno(int courseno) {
+	public void setCourseno(String courseno) {
 		this.courseno = courseno;
 	}
 	public int getSectid() {

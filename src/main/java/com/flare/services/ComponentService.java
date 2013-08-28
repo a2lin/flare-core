@@ -12,13 +12,14 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import com.flare.domain.Component;
+import com.flare.domain.ComponentList;
 import com.flare.solrAccess.SolrSingleton;
 
 @Service
 public class ComponentService {
 	private static final Logger logger_c = Logger.getLogger(CourseService.class);
 	private static final String uri_base = "http://ec2-54-213-31-81.us-west-2.compute.amazonaws.com:8983/solr/collection1/select?q=";
-	private static final String uri_qsp = "&wt=json&indent=true";
+	private static final String uri_qsp = "&wt=json&indent=true&rows=99999";
 	public SolrSingleton solr = SolrSingleton.getSolrSingleton();
 	
 	public Component getComponent(String sectid) {
@@ -47,7 +48,8 @@ public class ComponentService {
 
 	}
 
-	public List<Component> getAllComponents() {
+	
+	public ComponentList getAllComponents() {
 		JsonNode node;
 		ArrayList<Component> compList = new ArrayList<Component>();
 		node = solr.request(uri_base+"%2Btype%3Acomponent" + uri_qsp);
@@ -60,7 +62,7 @@ public class ComponentService {
 			for(int i = 0; i < node.size(); i++)
 			{
 				try {
-					comp = mapper.readValue(node.get(0).toString(), Component.class);
+					comp = mapper.readValue(node.get(i).toString(), Component.class);
 				} catch (JsonParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -74,7 +76,12 @@ public class ComponentService {
 				compList.add(comp);
 			}
 		}
-		return compList;
+		
+		ComponentList cListObj = new ComponentList();
+		cListObj.setComponents(compList);
+		cListObj.setNum(compList.size());
+		
+		return cListObj;
 	}
 
 }

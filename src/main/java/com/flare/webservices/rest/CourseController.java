@@ -1,5 +1,7 @@
 package com.flare.webservices.rest;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,29 +41,39 @@ public class CourseController {
 			c = cs_i.getCourses();
 		}
 		catch(Exception e){
-			  String sMessage = "Error invoking getFund. [%1$s]";  
+			  String sMessage = "Error invoking getCourse. [%1$s]";  
 			  return createErrorResponse(String.format(sMessage, e.toString()));  
 		}
-		logger_c.debug("Returning Fund: " + c.toString());  
-		System.err.println("watup");
 		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
 	}
 	
 	@RequestMapping(value = "/courses/", method=RequestMethod.GET)
-	public ModelAndView getCourse()
+	public ModelAndView getCourses()
 	{
 		Course c = null;
 		try{
 			c = cs_i.getCourses();
 		}
 		catch(Exception e){
-			  String sMessage = "Error invoking getFund. [%1$s]";  
+			  String sMessage = "Error invoking getCourses. [%1$s]";  
 			  return createErrorResponse(String.format(sMessage, e.toString()));  
 		}
-		logger_c.debug("Returning Fund: " + c.toString());  
-		System.err.println("watup");
 		return new ModelAndView(jsonView_i, DATA_FIELD, c);  
 	}
+	
+//	@RequestMapping(value="/courses/ids/", method=RequestMethod.GET)
+//	public ModelAndView getCourseIds()
+//	{
+//		ArrayList<String> idList = null;
+//		try{
+//			idList = cs_i.getCourseIds();
+//		}
+//		catch(Exception e){
+//			String sMessage = "Error invoking getIds. [%1$s]";
+//			return createErrorResponse(String.format(sMessage, e.toString()));
+//		}
+//		return new ModelAndView(jsonView_i, DATA_FIELD, idList);
+//	}
 	
 //	@RequestMapping(value = "*", method=RequestMethod.GET)
 //	public ModelAndView generic()

@@ -1,7 +1,5 @@
 package com.flare.webservices.rest;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import com.flare.domain.Component;
+import com.flare.domain.ComponentList;
 import com.flare.services.ComponentService;
 
 @Controller
@@ -35,12 +34,11 @@ public class ComponentController {
 	}
 	
 	@RequestMapping(value = "/components/", method=RequestMethod.GET)
-	public ModelAndView getAllComponent()
+	public ModelAndView getAllComponents()
 	{
-		List<Component> components;
-		components = cs.getAllComponents();
-		return new ModelAndView(jsonView, DATA, components);
-		
+		ComponentList cListObj;
+		cListObj = cs.getAllComponents();
+		return new ModelAndView(jsonView, DATA, cListObj);	
 	}
 	
 	@RequestMapping(value = "/component/{sectid}", method=RequestMethod.GET)

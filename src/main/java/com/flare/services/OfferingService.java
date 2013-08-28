@@ -12,6 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import com.flare.domain.Offering;
+import com.flare.domain.OfferingList;
 import com.flare.solrAccess.SolrSingleton;
 
 @Service
@@ -30,7 +31,7 @@ public class OfferingService {
 	 */
 	//TODO Cache in Database?
 	
-	public List<Offering> getAllClasses() {
+	public OfferingList getAllClasses() {
 		JsonNode node;
 		node = solr.request(uri_base+"%2Btype%3A+offering"+uri_qsp);
 		System.out.println(uri_base+"%2Btype%3A+offering"+uri_qsp);
@@ -67,8 +68,11 @@ public class OfferingService {
 			}
 		}
 		
+		OfferingList oListObj = new OfferingList();
+		oListObj.setNum(li_of.size());
+		oListObj.setOfferingList(li_of);
 //		System.out.println(node);
-		return li_of;
+		return oListObj;
 	}
 
 
@@ -98,6 +102,23 @@ public class OfferingService {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<String> getSubjCodes(){
+		JsonNode node;
+		ArrayList<String> subjCodeList = new ArrayList<String>();
+		node = solr.request(uri_base+"*%3A*&rows=0&wt=json&facet=true&facet.field=subjcode");
+		node = node.get("facet_counts");
+		node = node.get("facet_fields");
+		node = node.get("subjcode");
+		for(int i = 0; i < node.size(); i++)
+		{
+			if(i%2==0)
+			{
+				subjCodeList.add(node.get(i).getTextValue());
+			}
+		}
+		return subjCodeList;
 	}
 	
 }
